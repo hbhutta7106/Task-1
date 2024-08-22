@@ -1,5 +1,5 @@
 import 'package:api_project/Screens/home_screen.dart';
-import 'package:api_project/Screens/profile_screen.dart';
+import 'package:api_project/Screens/navigation.dart';
 import 'package:api_project/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: screenColor,
         useMaterial3: true,
       ),
-      home: const ProfileScreen(),
+      home:const NavigationScreen(),
     );
   }
 }

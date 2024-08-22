@@ -69,7 +69,7 @@ class NotificationCard extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            notificationContainer(notification),
+            notificationContainer(notification, context),
           ],
         ),
       ),
@@ -77,15 +77,17 @@ class NotificationCard extends StatelessWidget {
   }
 }
 
-Widget notificationContainer(String message) {
+Widget notificationContainer(String message, BuildContext context) {
   return Container(
-    width: 300,
+    width: MediaQuery.of(context).size.width * 0.75,
     padding: const EdgeInsets.all(5.0),
-    child: Text(
-      message,
-      softWrap: true,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 2,
+    child: Center(
+      child: Text(
+        message,
+        softWrap: true,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+      ),
     ),
   );
 }

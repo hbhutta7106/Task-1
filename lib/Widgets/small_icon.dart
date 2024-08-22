@@ -7,20 +7,24 @@ class CustomContainer extends StatelessWidget {
       required this.func,
       this.imagePath,
       this.color,
+      this.height,
+      this.width,
       this.iconColor});
   final IconData? icon;
   final String? imagePath;
   final VoidCallback func;
   final Color? color;
   final Color? iconColor;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: func,
       child: Container(
-        height: 55,
-        width: 55,
+        height: height,
+        width: width,
         decoration: BoxDecoration(shape: BoxShape.circle, color: color),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
@@ -30,12 +34,10 @@ class CustomContainer extends StatelessWidget {
                       imagePath!,
                       fit: BoxFit.cover,
                     )
-                  : Center(
-                      child: Icon(
-                        icon,
-                        size: 30,
-                        color: iconColor,
-                      ),
+                  : Icon(
+                      icon,
+                      size: 25,
+                      color: iconColor,
                     )),
         ),
       ),

@@ -24,14 +24,14 @@ class ProfileScreen extends StatelessWidget {
                 height: 10,
               ),
               const ContainerWithImage(
-                  imagePath: "assets/images/man-with-b.jpg",
+                  imagePath: "assets/images/profile.jpg",
                   height: 100,
                   width: 100),
               const SizedBox(
                 height: 25,
               ),
               profileInfoContainer(() {}, "Muhammad Hanan Haider ",
-                  "bhuttahanan3@gmail.com", "27-12-2000"),
+                  "bhuttahanan3@gmail.com", "27-12-2000", context),
               const SizedBox(
                 height: 20,
               ),
@@ -74,11 +74,7 @@ Widget profilePhoto(String imagePath, double height, width) {
 }
 
 Widget profileInfoContainer(
-  VoidCallback onPress,
-  String name,
-  email,
-  dob,
-) {
+    VoidCallback onPress, String name, email, dob, BuildContext context) {
   return Container(
     padding: const EdgeInsets.all(10.0),
     decoration: BoxDecoration(
@@ -89,14 +85,16 @@ Widget profileInfoContainer(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
+          width: MediaQuery.of(context).size.width * 0.6,
           padding: const EdgeInsets.all(5.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name,
+                overflow: TextOverflow.ellipsis,
                 maxLines: 1,
+                name,
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 18,
@@ -138,7 +136,7 @@ Widget profileTiles(String name) {
     mainAxisSize: MainAxisSize.min,
     children: [
       Container(
-        padding: const EdgeInsets.fromLTRB(12, 4, 10, 4),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0), color: primaryTextColor),
         child: Row(
